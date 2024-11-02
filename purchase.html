@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Purchase</title>
+</head>
+<body>
+    <h1>Buy Your Book Now!</h1>
+    <button id="buyButton">Buy Now</button>
+    <p id="message"></p>
+
+    <script>
+        const buyButton = document.getElementById('buyButton');
+        const messageElement = document.getElementById('message');
+
+        buyButton.addEventListener('click', () => {
+            // Make a request to the backend to process the purchase
+            fetch('/purchase')
+                .then(response => {
+                    if (response.ok) {
+                        messageElement.textContent = 'Purchase unsuccessful!';
+                    } else {
+                        messageElement.textContent = 'Purchase Sucessful!.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    messageElement.textContent = 'An error occurred. Please try again later.';
+                });
+        });
+    </script>
+</body>
+</html>
