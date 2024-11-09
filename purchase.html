@@ -10,14 +10,27 @@
             font-size: 30;
             font-family: 'Poppins', sans-serif;
         }
+        .button{
+            height: 50px;
+        }
+        #buyButton{
+            cursor: pointer;
+            font-size: 40px;
+            font-family: 'Poppins', sans-serif;
+
+        }
+        #buyButton:hover{
+            background-color: rgb(203, 233, 233);
+        }
+
+        
     </style>
-    
 </head>
 <body>
     <h1>Buy Your Book Now!</h1>
     <button id="buyButton">Buy Now</button>
     <p id="message"></p>
-
+   
     <script>
         const buyButton = document.getElementById('buyButton');
         const messageElement = document.getElementById('message');
@@ -29,7 +42,9 @@
                     if (response.ok) {
                         messageElement.textContent = 'Purchase unsuccessful!';
                     } else {
-                        messageElement.textContent = 'Purchase Sucessful!.';
+                        messageElement.textContent = 'Thank You For Your Purchase! You ll receive an email confirmation shortly with your order details and download link (if applicable). Enjoy your reading journey!Happy reading! 📚✨';
+
+
                     }
                 })
                 .catch(error => {
